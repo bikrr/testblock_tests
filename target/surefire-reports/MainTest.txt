@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: MainTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 2, Errors: 0, Skipped: 2, Time elapsed: 2.311 sec <<< FAILURE!
+beforeTest(MainTest)  Time elapsed: 2.119 sec  <<< FAILURE!
+java.lang.IllegalStateException: The driver executable does not exist: D:\idea-workspace\testblock_tests\testblock-tests\chromedriver.exe
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:136)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:131)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:32)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:137)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:339)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:88)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:123)
+	at MainTest.beforeTest(MainTest.java:17)
+
+beforeTest(MainTest)  Time elapsed: 2.127 sec  <<< FAILURE!
+java.lang.IllegalStateException: The driver executable does not exist: D:\idea-workspace\testblock_tests\testblock-tests\chromedriver.exe
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:136)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:131)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:32)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:137)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:339)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:88)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:123)
+	at MainTest.beforeTest(MainTest.java:17)
+
