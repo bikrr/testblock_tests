@@ -46,7 +46,7 @@ public class MainTest {
     public void isHeaderPresent() throws InterruptedException, IOException {
         driver.get("http://0.0.0.0:8172");
         Thread.sleep(2000);
-        System.out.println("!!!!!!s!"+driver.getCurrentUrl());
+
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(scrFile, new File("/home/bikrr/scr/screenshot.png"));
         Assert.assertTrue(driver.findElement(By.xpath("//h1[text()='TestBlock test']")).isDisplayed()); //Проверка на отображение элемента
@@ -54,9 +54,11 @@ public class MainTest {
     }
 
     @Test
-    public void testOpenPageYandex() throws InterruptedException {
-        driver.get("http://localhost:8172");
-        driver.quit();
+    public void isDBconnected() throws InterruptedException {
+        driver.get("http://0.0.0.0:8172");
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//*[@id=\"dbconnectverify\"]")).click();
+        Assert.assertTrue(driver.findElement(By.xpath("//*[@id=\"returnsoap\"][text()='Connection Failed']")).isDisplayed()); //Проверка на отображение элемента
     }
 
     /*
