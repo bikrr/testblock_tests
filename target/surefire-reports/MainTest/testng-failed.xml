@@ -7,7 +7,6 @@
         <methods>
           <include name="testOpenPageGoogle"/>
           <include name="beforeTest"/>
-          <include name="testOpenPageYandex"/>
           <include name="afterTest"/>
         </methods>
       </class> <!-- MainTest -->

@@ -37,9 +37,10 @@ public class MainTest {
     }
 
     @Test
-    public void testOpenPageGoogle() throws InterruptedException {
+    public void isHeaderPresent() throws InterruptedException {
         driver.get("http://localhost:8172");
         Thread.sleep(2000);
+        System.out.println(driver.getPageSource());
         Assert.assertTrue(driver.findElement(By.xpath("//h1[text()='TestBlock test']")).isDisplayed()); //Проверка на отображение элемента
         driver.quit();
     }
