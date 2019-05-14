@@ -61,7 +61,7 @@ public class MainTest {
         Thread.sleep(10000);
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(scrFile, new File("/home/bikrr/scr/screenshot2.png"));
-        Assert.assertTrue(driver.findElement(By.xpath("//*[@id='returnsoap'][text()='Connection Failed']")).isDisplayed()); //Проверка на отображение элемента
+        Assert.assertTrue(driver.findElement(By.xpath("//*[@id='returnsoap'][text()='You successfully connected to database now']")).isDisplayed()); //Проверка на отображение элемента
     }
 
     /*
