@@ -44,7 +44,7 @@ public class MainTest {
 
     @Test
     public void isHeaderPresent() throws InterruptedException, IOException {
-        driver.get("http://localhost:8172");
+        driver.get("http://0.0.0.0:8172");
         Thread.sleep(2000);
         System.out.println("!!!!!!s!"+driver.getCurrentUrl());
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
