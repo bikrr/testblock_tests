@@ -48,7 +48,7 @@ public class MainTest {
         Thread.sleep(2000);
         System.out.println("!!!!!!s!"+driver.getCurrentUrl());
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(scrFile, new File("//home//bikrr//screenshot.png"));
+        FileUtils.copyFile(scrFile, new File("/home/bikrr/scr/screenshot.png"));
         Assert.assertTrue(driver.findElement(By.xpath("//h1[text()='TestBlock test']")).isDisplayed()); //Проверка на отображение элемента
         driver.quit();
     }
