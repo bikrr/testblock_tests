@@ -5,7 +5,8 @@
     <classes>
       <class name="MainTest">
         <methods>
-          <include name="testOpenPageGoogle"/>
+          <include name="isDBconnected"/>
+          <include name="isHeaderPresent"/>
           <include name="beforeTest"/>
           <include name="afterTest"/>
         </methods>

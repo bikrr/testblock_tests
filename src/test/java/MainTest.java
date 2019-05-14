@@ -58,7 +58,8 @@ public class MainTest {
         driver.get("http://0.0.0.0:8172");
         Thread.sleep(2000);
         driver.findElement(By.xpath("//*[@id=\"dbconnectverify\"]")).click();
-        Assert.assertTrue(driver.findElement(By.xpath("//*[@id=\"returnsoap\"][text()='Connection Failed']")).isDisplayed()); //Проверка на отображение элемента
+        Thread.sleep(5000);
+        Assert.assertTrue(driver.findElement(By.xpath("//*[@id='returnsoap'][text()='Connection Failed']")).isDisplayed()); //Проверка на отображение элемента
     }
 
     /*
