@@ -17,8 +17,11 @@ import java.net.URL;
 
 public class MainTest {
 
+
+    String app_url ="http://0.0.0.0:8172";
+
     //***Windows***
-   // ChromeDriver driver; //объявляем заранее драйвер бразуера. Делать нужно вне методов
+    // ChromeDriver driver; //объявляем заранее драйвер бразуера.
 
     //***Ubuntu***
     WebDriver driver;
@@ -27,49 +30,56 @@ public class MainTest {
     @BeforeMethod означает что будет выполянтся перед каждым методом, помеченным аннотацией Test
     alwaysRun означает что будет выпонятся всегда, даже если предыдущий тест упал
      */
+
+
+
     @BeforeMethod(alwaysRun = true)
     public void beforeTest() throws MalformedURLException {
 
         //***Windows***
-       // System.setProperty("webdriver.chrome.driver","chromedriver74.exe"); //обязательно указать путь до хромдрайвера
-       // driver = new ChromeDriver();
+        // System.setProperty("webdriver.chrome.driver","chromedriver74.exe"); //обязательно указать путь до хромдрайвера
+        // driver = new ChromeDriver();
 
         //***Ubuntu***
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
-        driver =  new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"),options);
+        driver = new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"), options);
 
 
     }
 
+    // Открыть приложение, убедиться, что заголовок TestBlock test присутствует на странице
     @Test
     public void isHeaderPresent() throws InterruptedException, IOException {
-        driver.get("http://0.0.0.0:8172");
+        driver.get(app_url);
         Thread.sleep(2000);
-
-        File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(scrFile, new File("/home/bikrr/scr/screenshot.png"));
+        // Скриншот для отладки теста
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(scrFile, new File("/home/bikrr/scr/isHeaderPresent.png"));
         Assert.assertTrue(driver.findElement(By.xpath("//h1[text()='TestBlock test']")).isDisplayed()); //Проверка на отображение элемента
         driver.quit();
     }
 
+    // Открыть приложение, нажать кнопку JDBC connect, убедиться, что появляется сообщение успешного подключения
     @Test
     public void isDBconnected() throws InterruptedException, IOException {
-        driver.get("http://0.0.0.0:8172");
+        driver.get(app_url);
         Thread.sleep(2000);
         driver.findElement(By.xpath("//*[@id=\"dbconnectverify\"]")).click();
         Thread.sleep(10000);
-        File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(scrFile, new File("/home/bikrr/scr/screenshot2.png"));
-        Assert.assertTrue(driver.findElement(By.xpath("//*[@id='returnsoap'][text()='You successfully connected to database now']")).isDisplayed()); //Проверка на отображение элемента
+        // Скриншот для отладки теста
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(scrFile, new File("/home/bikrr/scr/isDBconnected.png"));
+        //Проверка на отображение элемента
+        Assert.assertTrue(driver.findElement(By.xpath("//*[@id='returnsoap'][text()='You successfully connected to database now']")).isDisplayed());
     }
 
     /*
     @AfterMethod означает что будет выполянтся после каждого тестового метода, помеченным аннотацией Test
     */
     @AfterMethod(alwaysRun = true)
-    public void afterTest(){
-        if(driver!=null){
+    public void afterTest() {
+        if (driver != null) {
             driver.quit(); // закрыть браузер, если он не смог закрыться сам во время теста
         }
     }
